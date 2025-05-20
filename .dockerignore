@@ -1,0 +1,27 @@
+# Игнорировать папку с моделями
+FRIDA/
+!FRIDA/.gitkeep
+
+# Игнорировать Git и временные файлы
+.git/
+.github/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Игнорировать среды разработки и логи
+venv/
+env/
+.env
+logs/
+*.log
+
+# Документация и прочие ненужные для сборки файлы
+README.md
+LICENSE 

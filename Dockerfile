@@ -11,10 +11,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Copy application code (FRIDA directory is excluded via .dockerignore)
 COPY . .
 
-# Ensure the FRIDA directory exists
+# Create the FRIDA directory for mounting
 RUN mkdir -p FRIDA
 
 # Expose the port the app runs on
