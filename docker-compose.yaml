@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - API_TOKEN=${API_TOKEN:-default_token_change_me}
+      - MAX_QUEUE_SIZE=${MAX_QUEUE_SIZE:-10}
+      - MODEL_PATH=/app/FRIDA
+      - MODEL_NAME=${MODEL_NAME:-ai-forever/FRIDA}
+    volumes:
+      - ./FRIDA:/app/FRIDA
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu] 
