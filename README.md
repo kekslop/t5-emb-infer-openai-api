@@ -1,5 +1,7 @@
 # API Векторной Модели
 
+> **Ключевая особенность**: API построено на основе топовой модели векторных представлений FRIDA от AI-Forever, которая обеспечивает высокое качество эмбеддингов для русского и других языков.
+
 Контейнеризированное FastAPI приложение для запуска моделей векторных представлений текста.
 
 ## Функциональность
@@ -135,6 +137,8 @@ huggingface-cli download ai-forever/FRIDA --include "*.safetensors" --exclude "*
 ---
 
 # Embedding Model API
+
+> **Key Feature**: This API is built around the state-of-the-art FRIDA embedding model from AI-Forever, which provides high-quality text embeddings for Russian and other languages.
 
 A containerized FastAPI application for running embedding models.
 
