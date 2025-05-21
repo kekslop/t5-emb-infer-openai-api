@@ -1,14 +1,23 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
+import os
 from contextlib import asynccontextmanager
 
 from src.services.model_service import load_model, clear_gpu_memory
 from src.services.queue_service import queue_manager, request_queue
 from src.api.routes import router
+from src.core.config import MODEL_NAME, API_TOKEN, MAX_QUEUE_SIZE
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Печать информации о конфигурации
+    print("\n--- API Configuration ---")
+    print(f"API_TOKEN is {'properly set' if API_TOKEN != 'default_token_change_me' else 'using default value - CHANGE THIS!'}")
+    print(f"MODEL_NAME: {MODEL_NAME}")
+    print(f"MAX_QUEUE_SIZE: {MAX_QUEUE_SIZE}")
+    print("-------------------------\n")
+    
     # Load the model at startup
     app.state.encoder = await load_model()
     
